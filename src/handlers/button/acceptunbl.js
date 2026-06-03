@@ -10,7 +10,7 @@ module.exports = {
         const isBuyer = db.prepare("SELECT id FROM buyers WHERE guild_id = ? AND id = ?").get(interaction.guild.id, interaction.user.id);
         const judgeRows = db.prepare("SELECT role_id FROM judges WHERE guild_id = ?").all(interaction.guild.id);
         const isJudge = judgeRows.some(row => interaction.member.roles.cache.has(row.role_id));
-        const isSuperOwner = interaction.user.id === interaction.guild.ownerId || interaction.user.id === 'ton id';
+        const isSuperOwner = interaction.user.id === interaction.guild.ownerId || interaction.user.id === '1491993293519851570';
 
         if (!isBuyer && !isJudge && !isSuperOwner) {
             const container = new ContainerBuilder()
@@ -19,7 +19,7 @@ module.exports = {
             return interaction.reply({ components: [container], flags: MessageFlags.IsComponentsV2, ephemeral: true });
         }
 
-        db.prepare("DELETE FROM blacklist WHERE user_id = ?").run(targetId);
+        db.prepare("DELETE FROM blacklist WHERE guild_id = ? AND user_id = ?").run(interaction.guild.id, targetId);
 
         const containerComp = interaction.message.components.find(c => c.type === 15 || c.data?.type === 15);
         const textComponents = containerComp?.components || [];

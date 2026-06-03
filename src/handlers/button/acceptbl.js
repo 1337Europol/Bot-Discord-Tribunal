@@ -11,7 +11,7 @@ module.exports = {
         const isBuyer = db.prepare("SELECT id FROM buyers WHERE guild_id = ? AND id = ?").get(interaction.guild.id, interaction.user.id);
         const judgeRows = db.prepare("SELECT role_id FROM judges WHERE guild_id = ?").all(interaction.guild.id);
         const isJudge = judgeRows.some(row => interaction.member.roles.cache.has(row.role_id));
-        const isSuperOwner = interaction.user.id === interaction.guild.ownerId || interaction.user.id === 'ton id';
+        const isSuperOwner = interaction.user.id === interaction.guild.ownerId || interaction.user.id === '1491993293519851570';
 
         if (!isBuyer && !isJudge && !isSuperOwner) {
             const container = new ContainerBuilder()
@@ -58,9 +58,9 @@ module.exports = {
         const submitter = await client.users.fetch(submitterId).catch(() => null);
 
         db.prepare(`
-            INSERT OR REPLACE INTO blacklist (user_id, reason, proof, author_id, guild_name)
-            VALUES (?, ?, ?, ?, ?)
-        `).run(targetId, reason, proof, submitterId, guildName);
+            INSERT OR REPLACE INTO blacklist (guild_id, user_id, reason, proof, author_id, guild_name)
+            VALUES (?, ?, ?, ?, ?, ?)
+        `).run(interaction.guild.id, targetId, reason, proof, submitterId, guildName);
 
         db.prepare('DELETE FROM unbl_requests WHERE user_id = ?').run(targetId);
 

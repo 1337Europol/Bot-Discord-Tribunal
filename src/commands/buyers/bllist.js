@@ -10,7 +10,7 @@ module.exports = {
     permissions: ['buyer'],
     async execute(interaction, client) {
         try {
-            const rows = db.prepare('SELECT user_id, reason FROM blacklist').all();
+            const rows = db.prepare('SELECT user_id, reason FROM blacklist WHERE guild_id = ?').all(interaction.guild.id);
 
             if (rows.length === 0) {
                 const container = new ContainerBuilder()

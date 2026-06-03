@@ -8,7 +8,7 @@ module.exports = {
         .setDescription('demande de unblacklist'),
     permissions: ['everyone'],
     async execute(interaction, client) {
-        const isBlacklisted = db.prepare("SELECT * FROM blacklist WHERE user_id = ?").get(interaction.user.id);
+        const isBlacklisted = db.prepare("SELECT * FROM blacklist WHERE guild_id = ? AND user_id = ?").get(interaction.guild.id, interaction.user.id);
         if (!isBlacklisted) {
             const container = new ContainerBuilder()
                 .setAccentColor(config.embedColor)
@@ -26,7 +26,7 @@ module.exports = {
             return interaction.reply({ components: [container], flags: MessageFlags.IsComponentsV2, ephemeral: true });
         }
 
-        const mainConfig = db.prepare("SELECT unbl_submission_channel_id FROM config_logs WHERE unbl_submission_channel_id IS NOT NULL LIMIT 1").get();
+        const mainConfig = db.prepare("SELECT unbl_submission_channel_id FROM config_logs WHERE guild_id = ? AND unbl_submission_channel_id IS NOT NULL").get(interaction.guild.id);
         if (!mainConfig) {
             const container = new ContainerBuilder()
                 .setAccentColor(config.embedColor)

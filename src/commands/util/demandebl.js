@@ -33,7 +33,7 @@ module.exports = {
             return interaction.reply({ components: [container], flags: MessageFlags.IsComponentsV2 | MessageFlags.Ephemeral });
         }
 
-        const logConfig = db.prepare("SELECT bl_submission_channel_id FROM config_logs WHERE bl_submission_channel_id IS NOT NULL LIMIT 1").get();
+        const logConfig = db.prepare("SELECT bl_submission_channel_id FROM config_logs WHERE guild_id = ? AND bl_submission_channel_id IS NOT NULL").get(interaction.guild.id);
         if (!logConfig) {
             const container = new ContainerBuilder()
                 .setAccentColor(config.embedColor)

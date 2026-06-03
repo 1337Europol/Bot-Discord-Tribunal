@@ -9,10 +9,10 @@ module.exports = {
     permissions: ['buyer'],
     async execute(interaction, client) {
         try {
-            const rows = db.prepare("SELECT user_id FROM blacklist").all();
+            const rows = db.prepare("SELECT user_id FROM blacklist WHERE guild_id = ?").all(interaction.guild.id);
             const blacklistIds = new Set(rows.map(r => r.user_id));
 
-            db.prepare("DELETE FROM blacklist").run();
+            db.prepare("DELETE FROM blacklist WHERE guild_id = ?").run(interaction.guild.id);
             try {
                 db.prepare("DELETE FROM unbl_requests").run();
             } catch (e) { }

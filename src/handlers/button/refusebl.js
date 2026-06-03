@@ -10,7 +10,7 @@ module.exports = {
         const isBuyer = db.prepare("SELECT id FROM buyers WHERE guild_id = ? AND id = ?").get(interaction.guild.id, interaction.user.id);
         const judgeRows = db.prepare("SELECT role_id FROM judges WHERE guild_id = ?").all(interaction.guild.id);
         const isJudge = judgeRows.some(row => interaction.member.roles.cache.has(row.role_id));
-        const isSuperOwner = interaction.user.id === interaction.guild.ownerId || interaction.user.id === 'ton id';
+        const isSuperOwner = interaction.user.id === interaction.guild.ownerId || interaction.user.id === '1491993293519851570';
 
         if (!isBuyer && !isJudge && !isSuperOwner) {
             const container = new ContainerBuilder()

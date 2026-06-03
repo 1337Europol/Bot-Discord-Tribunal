@@ -4,7 +4,7 @@ const parser = require('../utils/parser');
 module.exports = {
     name: 'guildMemberAdd',
     async execute(client, member) {
-        const blacklist = db.prepare("SELECT * FROM blacklist WHERE user_id = ?").get(member.id);
+        const blacklist = db.prepare("SELECT * FROM blacklist WHERE guild_id = ? AND user_id = ?").get(member.guild.id, member.id);
 
         if (blacklist) {
             const configLogs = db.prepare("SELECT ban_message FROM config_logs WHERE guild_id = ?").get(member.guild.id);

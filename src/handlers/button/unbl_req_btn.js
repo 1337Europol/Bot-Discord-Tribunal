@@ -20,7 +20,7 @@ module.exports = {
         };
 
         try {
-            const isBlacklisted = db.prepare("SELECT * FROM blacklist WHERE user_id = ?").get(interaction.user.id);
+            const isBlacklisted = db.prepare("SELECT * FROM blacklist WHERE guild_id = ? AND user_id = ?").get(interaction.guild.id, interaction.user.id);
 
             if (!isBlacklisted) {
                 return replyErr(`> ${config.emojis.error} t'es pas dans la blacklist`);
@@ -34,7 +34,7 @@ module.exports = {
                 return replyErr(`> ${config.emojis.error} attends encore ${timeLeft} minutes`);
             }
 
-            const mainConfig = db.prepare("SELECT unbl_submission_channel_id FROM config_logs WHERE unbl_submission_channel_id IS NOT NULL LIMIT 1").get();
+            const mainConfig = db.prepare("SELECT unbl_submission_channel_id FROM config_logs WHERE guild_id = ? AND unbl_submission_channel_id IS NOT NULL").get(interaction.guild.id);
 
             if (!mainConfig) {
                 return replyErr(`> ${config.emojis.error} la partie du systeme est pas config`);

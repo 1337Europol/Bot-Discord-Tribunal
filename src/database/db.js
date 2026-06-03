@@ -60,12 +60,14 @@ db.prepare(`
 
 db.prepare(`
     CREATE TABLE IF NOT EXISTS blacklist (
-        user_id TEXT PRIMARY KEY,
+        guild_id TEXT,
+        user_id TEXT,
         reason TEXT,
         proof TEXT,
         author_id TEXT,
         guild_name TEXT,
-        timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+        timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (guild_id, user_id)
     )
 `).run();
 

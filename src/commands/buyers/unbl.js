@@ -24,7 +24,7 @@ module.exports = {
                 return interaction.reply({ components: [container], flags: MessageFlags.IsComponentsV2 | MessageFlags.Ephemeral });
             }
 
-            const exists = db.prepare('SELECT user_id FROM blacklist WHERE user_id = ?').get(userId);
+            const exists = db.prepare('SELECT user_id FROM blacklist WHERE guild_id = ? AND user_id = ?').get(interaction.guild.id, userId);
             if (!exists) {
                 const container = new ContainerBuilder()
                     .setAccentColor(config.embedColor)
@@ -33,7 +33,7 @@ module.exports = {
             }
 
 
-            db.prepare('DELETE FROM blacklist WHERE user_id = ?').run(userId);
+            db.prepare('DELETE FROM blacklist WHERE guild_id = ? AND user_id = ?').run(interaction.guild.id, userId);
             try {
                 db.prepare('DELETE FROM unbl_requests WHERE user_id = ?').run(userId);
             } catch (e) { }
