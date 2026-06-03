@@ -1,0 +1,12 @@
+{
+  "name": "tribunal",
+  "version": "1.0.0",
+  "description": "bot pour tribunal commu discord",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^14.21.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0"
+  }
+}
