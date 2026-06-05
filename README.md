@@ -32,7 +32,7 @@ Ce bot permet de gérer un système de tribunal pour votre serveur Discord. Les 
 ### 1. Cloner le projet
 
 ```bash
-git clone <votre-repo-url>
+git clone https://github.com/1337Europol/Bot-Discord-Tribunal
 cd tribunal
 ```
 
