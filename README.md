@@ -242,6 +242,14 @@ tribunal/
 - Le bot utilise le mode WAL pour la base de données pour de meilleures performances
 - Les composants Discord (containers) nécessitent Discord.js v14+
 
+---
+
+## Support / Aide
+
+Besoin d'aide, ajoute-moi sur Discord : **httpmethod**
+
+---
+
 ## Contribution
 
 Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une issue ou un pull request.
