@@ -256,7 +256,7 @@ Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une issue ou un
 
 ## Licence
 
-Ce projet est fourni tel quel pour une utilisation communautaire.
+Ce projet est fourni tel quel pour une utilisation communautaire
 
 ## Liens Utiles
 
