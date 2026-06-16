@@ -172,7 +172,7 @@ La base de données est créée automatiquement au premier lancement dans `src/d
 node index.js
 ```
 
-Ou avec nodemon pour le développement :
+Ou avec nodemon pour le développement
 
 ```bash
 npm install -g nodemon
