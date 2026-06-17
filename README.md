@@ -266,4 +266,4 @@ Ce projet est fourni tel quel pour une utilisation communautaire
 
 ---
 
-**Développé pour la communauté Discord**
+**Développé pour la commu Discord**
