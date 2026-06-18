@@ -42,7 +42,7 @@ cd tribunal
 npm install
 ```
 
-Ou avec yarn :
+Ou avec yarn
 
 ```bash
 yarn install
