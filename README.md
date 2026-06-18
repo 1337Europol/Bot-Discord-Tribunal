@@ -20,7 +20,7 @@ Ce bot permet de gérer un système de tribunal pour votre serveur Discord. Les 
 
 - **Node.js** v18 ou supérieur
 - **npm** ou **yarn**
-- Un compte Discord bot avec les intents suivants :
+- Un compte Discord bot avec les intents suivants
   - Guilds
   - Guild Messages
   - Message Content
