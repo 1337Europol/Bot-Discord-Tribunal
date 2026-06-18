@@ -50,7 +50,7 @@ yarn install
 
 ### 3. Configurer le bot
 
-Ouvrez le fichier `src/config/config.js` et configurez les éléments suivants :
+Ouvrez le fichier `src/config/config.js` et configurez les éléments suivants
 
 ```javascript
 module.exports = {
