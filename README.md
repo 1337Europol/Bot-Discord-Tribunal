@@ -252,7 +252,7 @@ Besoin d'aide, ajoute-moi sur Discord : **httpmethod**
 
 ## Contribution
 
-Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une issue ou un pull request.
+Les contributions sont les bienvenues N'hésitez pas à ouvrir une issue ou un pull request
 
 ## Licence
 
