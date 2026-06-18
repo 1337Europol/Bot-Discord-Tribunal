@@ -4,7 +4,7 @@ Bot Discord pour la gestion d'un système de tribunal communautaire avec blackli
 
 ## Description
 
-Ce bot permet de gérer un système de tribunal pour votre serveur Discord. Les membres peuvent demander des blacklists, les juges peuvent accepter ou refuser ces demandes, et un système de permissions avancé gère les différents rôles (buyers, owners judges)
+Ce bot permet de gérer un système de tribunal pour votre serveur Discord. Les membres peuvent demander des blacklists, les juges peuvent accepter ou refuser ces demandes, et un système de permissions avancé gère les différents rôles (buyers owners judges)
 
 ## Fonctionnalités
 
