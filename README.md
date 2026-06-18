@@ -82,7 +82,7 @@ module.exports = {
 
 ## Configuration Initiale
 
-Une fois le bot démarré, vous devez configurer les salons et rôles :
+Une fois le bot démarré, vous devez configurer les salons et rôles
 
 ### Définir le salon de logs
 
